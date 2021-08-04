@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record100</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Cedarville+Cursive&family=Courgette&family=Courier+Prime:ital@0;1&family=Dancing+Script:wght@500&family=Gloria+Hallelujah&family=Oswald:wght@300&family=Overpass+Mono&family=Peddana&family=Roboto:wght@100&family=Rubik:ital,wght@0,300;1,500&family=Yellowtail&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="menuBar">
+       <img src="..//Excel-Clone-master//img//logo.gif" alt="" style="height: 40px; width: 55px; margin-left: 15px;border-right: inset;padding-right: 3px;user-select: none; -webkit-user-drag: none; ">
+        <div class="file"> <i class="fa fa-bars">  File  </i> </div>
+        <div class="home">  <i class="fa fa-home"> Home </i>  </div>
+    </div>
+
+    <div class="menuOptions">
+        <div class="fileOptions active">
+            <!-- <i class="fas fas-folder-plus">New</i> -->
+            <!--  -->
+            <!-- <i class="far fa-plus-square">New</i> -->
+            <div class="new" >    <i class="fa fa-plus">  New </i>                </div>
+            <!-- <div class="new" >    <i class="fa fa-plus-circle">  New</i>               </div> -->
+            <div class="open">  <i class="fa fa-folder-open">  Open</i> </div>
+            <div class="save">  <i class="fa fa-save"> Save </i>  </div>
+
+        </div>
+        <div class="homeOptions ">
+
+            <div class="formatting">
+                <div class="fontName">
+                    <select name="font" id="font" onclick="event.stopPropagation();">
+                        <option value="arial" style="font-family: 'arial'">Arial</option>
+                        <option value="'Caveat', cursive" style="font-family: 'Caveat', cursive;">Caveat</option>
+                        <option value="'Cedarville Cursive', cursive" style="font-family: 'Cedarville Cursive', cursive;">Cedarville</option>
+                        <option value="'Courgette', cursive" style="font-family: 'Courgette', cursive;">Courgette</option>
+                        <option value='Courier Prime', monospace="" style="font-family:'Courier Prime', monospace ;">Courier Prime</option>
+                        <option value="'Dancing Script', cursive" style="font-family: 'Dancing Script', cursive;">Dancing Script</option>
+                        <option value="'Gloria Hallelujah', cursive" style="font-family:'Gloria Hallelujah', cursive ;">Gloria Hallelujah</option>
+                        <option value="'Oswald', sans-serif" style="font-family:'Oswald', sans-serif ;">Oswald</option>
+                        <option value="Overpass Mono', monospace" style="font-family:'Overpass Mono', monospace ;">Overpass Mono</option>
+                        <option value="'Peddana', serif" style="font-family: 'Peddana', serif;">Peddana</option>
+                        <option value="'Roboto', sans-serif" style="font-family:'Roboto', sans-serif ;">Roboto</option>
+                        <option value="'Rubik', sans-serif" style="font-family:'Rubik', sans-serif ;">Rubik</option>
+                        <option value="'Yellowtail', cursive" style="font-family:'Yellowtail', cursive ;">Yellowtail</option>
+                    </select>
+                </div>
+                <div class="fontStyler">
+                    <input type="button" id="bold" value="B" style="font-weight: bold;">
+                    <input type="button" id="underline" value="U" style="text-decoration: underline;">
+                    <input type="button" id="italic" value="I" style="font-style: italic;">
+                </div>
+            </div>
+            <div class="style">
+                <div class="font-size">
+                    <select name="fontsize" id="fontsize">
+                        <option value="10">10</option>
+                        <option value="12">12</option>
+                        <option value="14">14</option>
+                        <option value="16">16</option>
+                    </select>
+                </div>
+                <div class="color">
+                    <input type="color" name="fontcolor" id="fontcolor">
+                    <input type="color" name="cellcolor" id="cellcolor">
+                </div>
+            </div>
+            <div class="alignment">
+                <input type="button" value="L" class="left">
+                <input type="button" value="C" class="center">
+                <input type="button" value="R" class="right">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="formula">
+        <div class="address">
+            <input type="text" class="addressInput" readonly placeholder="Current Cell">
+        </div>
+        <div class="triangle-right"></div>
+        <img src="..//Excel-Clone-master//img//fx.png" alt="fx" style="height: 20px; width: 20px;background-color:lightgrey;-webkit-user-drag: none;">
+        <div class="addFormula">
+            <input type="text" spellcheck="false" class="FormulaInput" placeholder= "Write Formula">
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="topLeft">
+
+        </div>
+        <div class="leftMost">
+            <% for(let i=0;i<100;i++) {%>
+                <div class="leftMostCell" r-Id = <%=i%>><%=i+1%></div>
+                <%}%>
+        </div>
+        <div class="topMost">
+            <% for(let i=0;i<26;i++) {%>
+                <div class="topMostCell" c-Id = <%=i%>><%= String.fromCharCode(i+65)%></div>
+                <%}%>
+        </div>
+        <div class="cells">
+            <% for(let i=0;i<100;i++) { %>
+                <div class="rows">
+                    <% for(let j = 0;j<26;j++) { %>
+
+                        <div class="cell" id="cell" r-Id =<%=i%> c-Id=<%=j%> contenteditable = "true" spellcheck="false">
+                        </div>
+
+                    <%}%>
+                </div>
+            <%}%>
+
+        </div>
+    </div>
+
+    <div class="sheets">sheet1</div>
+    <script src="./script.js"></script>
+</body>
+</html>
